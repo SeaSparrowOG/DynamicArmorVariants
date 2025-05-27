@@ -25,6 +25,10 @@ auto ArmorVariant::WouldReplace(const RE::TESObjectARMA* a_armorAddon) const -> 
 
 auto ArmorVariant::WouldReplaceAny(const RE::TESObjectARMO* a_armor) const -> bool
 {
+	if (!a_armor) {
+		return false;
+	}
+	
 	for (auto& armorAddon : a_armor->armorAddons) {
 		if (WouldReplace(armorAddon)) {
 			return true;
